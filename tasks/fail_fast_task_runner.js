@@ -111,6 +111,7 @@ module.exports = function(grunt) {
 
       gruntfiles.forEach(function(gruntfile) {
         gruntfile = path.resolve(process.cwd(), gruntfile);
+        // To get directory
         splitPath = gruntfile.split('/');
 
         // Skip it's own gruntfile. Prevents infinite loops.

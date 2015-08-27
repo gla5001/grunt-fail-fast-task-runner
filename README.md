@@ -1,6 +1,6 @@
 # grunt-fail-fast-task-runner
 
-> A Grunt task to run tasks on multiple Grunt projects that will fail fast
+> A Grunt task to run tasks on multiple Grunt projects that will exit immediately on failure (fail fast)
 
 ## Getting Started
 This plugin requires Grunt.
@@ -20,73 +20,74 @@ grunt.loadNpmTasks('grunt-fail-fast-task-runner');
 ## The "fail_fast_task_runner" task
 
 ### Overview
-In your project's Gruntfile, add a section named `fail_fast_task_runner` to the data object passed into `grunt.initConfig()`.
+The `fail_fast_task_runner` task is for running tasks on multiple projects. It would like to know which Gruntfiles to use and which tasks to run on each Grunt project. For example if you would like to lint and test on every Grunt project one folder up
 
 ```js
 grunt.initConfig({
   fail_fast_task_runner: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
+    all: {
+      src: ['../*/Gruntfile.js'],
+      tasks: ['jshint', 'nodeunit'],
     },
   },
-})
+});
 ```
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### options.concurrency
+Type: `Number`
+Default value: `1`
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+An integer for determining how many worker functions should be run in parallel.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default options are used to run tasks on multiple projects. So running `fail_fast_task_runner:build` will run the `buildtask` over all Gruntfiles, and running `fail_fast_task_runner:all` will run the tasks `dev` and `tasks`.
 
 ```js
 grunt.initConfig({
   fail_fast_task_runner: {
     options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    build: {
+      src: ['*/Gruntfile.js'],
+      tasks: ['buildtask']
     },
+    all: {
+      src: ['*/Gruntfile.js'],
+      tasks: ['dev', 'tasks']
+    }
   },
 })
 ```
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+In this example, custom options are used to run with a concurrency of 5.
 
 ```js
 grunt.initConfig({
   fail_fast_task_runner: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      concurrency: 5
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    build: {
+      src: ['*/Gruntfile.js'],
+      tasks: ['buildtask']
     },
+    all: {
+      src: ['*/Gruntfile.js'],
+      tasks: ['dev', 'tasks']
+    }
   },
 })
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+Open issue or pull request
 
 ## Release History
-_(Nothing yet)_
+- 0.1.0 initial release
 
 ## License
 Copyright (c) 2015 Greg Alexander. Licensed under the MIT license.

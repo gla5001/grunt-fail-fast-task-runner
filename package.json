@@ -1,7 +1,7 @@
 {
   "name": "grunt-fail-fast-task-runner",
   "version": "0.1.0",
-  "description": "A Grunt task to run tasks on multiple Grunt projects that will fail fast",
+  "description": "A Grunt task to run tasks on multiple Grunt projects that will exit immediately on failure (fail fast)",
   "homepage": "https://github.com/gla5001/grunt-fail-fast-task-runner",
   "repository": {
     "type": "git",
