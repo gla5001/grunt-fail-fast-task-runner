@@ -1,0 +1,42 @@
+{
+  "name": "grunt-fail-fast-task-runner",
+  "version": "0.1.0",
+  "description": "A Grunt task to run tasks on multiple Grunt projects that will fail fast",
+  "homepage": "https://github.com/gla5001/grunt-fail-fast-task-runner",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gla5001/grunt-fail-fast-task-runner.git"
+  },
+  "author": {
+    "name": "Greg Alexander",
+    "email": "gregory.l.alexander@gmail.com",
+    "url": ""
+  },
+  "keywords": [
+    "gruntplugin",
+    "failfast",
+    "fail",
+    "taskrunner"
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "async": "~1.4.2",
+    "chalk": "~0.4.0",
+    "lodash": "~3.10.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-nodeunit": "~0.3.0",
+    "grunt": "~0.4.1",
+    "jshint-stylish": "~0.1.5",
+    "load-grunt-tasks": "~0.3.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
