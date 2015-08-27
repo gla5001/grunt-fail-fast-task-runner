@@ -44,7 +44,7 @@ An integer for determining how many worker functions should be run in parallel.
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to run tasks on multiple projects. So running `fail_fast_task_runner:build` will run the `buildtask` over all Gruntfiles, and running `fail_fast_task_runner:all` will run the tasks `dev` and `tasks`.
+In this example, the default options are used to run tasks on multiple projects. So running `fail_fast_task_runner:build` will run the `buildtask` over all Gruntfiles, and running `fail_fast_task_runner:all` will run the tasks `dev` and `tasks`. If there is no argument passed after fail_fast_task_runner, all configurations are executed.
 If no tasks are defined, it will default to the default task.
 
 ```js
