@@ -28,7 +28,7 @@ grunt.initConfig({
     all: {
       src: ['../*/Gruntfile.js'],
       tasks: ['jshint', 'nodeunit'],
-    },
+    }
   },
 });
 ```
